@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1634144956 source:c:\users\ivan\desktop\škola i pdf shit\objektno programiranje\vjezba1\yugiohsort\main.cpp
+	<iostream>
+	<string>
+	<sstream>
+
