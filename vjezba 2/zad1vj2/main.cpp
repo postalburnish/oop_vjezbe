@@ -1,25 +1,26 @@
 #include <iostream>
 using namespace std;
-int sortem(int niz[],int a,int b,int&mini,int&maxi){
-    mini=niz[0];
-    maxi=niz[0];
-    for(a=0;a<b;a++){
-        if(niz[a]<=mini)
-            mini=niz[a];
-        else if(niz[a]>=maxi)
-            maxi=niz[a];
+int sortem(int arr[],int i,int len,int&mini,int&maxi){
+    mini=arr[0];
+    maxi=arr[0];
+
+    for(i=0;i<len;i++){
+        if(arr[i]<=mini)
+            mini=arr[i];
+        else if(arr[i]>=maxi)
+            maxi=arr[i];
     }
 }
 int main() {
-    int a,b,mini,maxi;
+    int i,len,mini,maxi;
     int &c=mini;
     int &d=maxi;
-    cin>>b;
-    int niz[b];
-    for(a=0;a<b;a++){
-        cin>>niz[a];
+    cin>>len;
+    int arr[len];
+    for(i=0;i<len;i++){
+        cin>>arr[i];
     }
-    sortem(niz,a,b,c,d);
-    cout << c <<endl<< d;
+    sortem(arr,i,len,c,d);
+    cout << c << endl << d;
     return 0;
 }

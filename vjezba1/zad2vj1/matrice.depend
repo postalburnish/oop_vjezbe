@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1636384603 source:c:\users\ivan\desktop\faks\objektno programiranje\vjezba1\zad2vj1\main.cpp
+	<iostream>
+	<time.h>
+	<stdlib.h>
+	<iomanip>
+
