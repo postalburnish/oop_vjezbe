@@ -2,19 +2,17 @@
 using namespace std;
 struct Vector
 {
-    int *arr;
-    int siz;
-    int cap;
+    int*arr;
+    size_t siz;
+    size_t cap;
 
-    void vector_new()
+    void vector_new(size_t sz)
     {
-        int*arr=new int[cap];
+        arr=new int[sz];
+        siz = 0;
+        cap = 1;
     }
-    void vector_delete()
-    {
-        delete arr;
-    }
-    void vector_pushback()
+    void vector_pushback(int n)
     {
         if (siz==cap)
         {
@@ -24,28 +22,39 @@ struct Vector
             {
                 arr2[i]=arr[i];
             }
+            delete[]arr;
             arr=arr2;
         }
-        cin>>arr[siz];
-        siz+=1;
+
+        arr[siz]=n;
+        siz++;
     }
 
     void vector_popback()
     {
-        siz-=1;
-
+        siz--;
     }
     int vector_front()
     {
-        cout << arr[0];
+       return arr[0];
     }
     int vector_back()
     {
-        cout<<arr[siz]<<endl;
+        return arr[siz-1];
     }
     int vector_size()
     {
-        cout<<siz<<endl;
+        return siz;
+    }
+    void vector_delete()
+    {
+        delete[]arr;
+    }
+    void print_vector()
+    {
+        for (size_t i = 0; i < vector_size(); ++i)
+        cout << arr[i] << " ";
+        cout << endl;
     }
 
 };
@@ -53,12 +62,26 @@ struct Vector
 int main()
 {
     Vector v1;
-    v1.siz=0;
-    v1.cap=1;
-    v1.vector_new();
-    v1.vector_pushback();
-    v1.vector_pushback();
-    v1.vector_front();
-    v1.vector_size();
+    int n;
+    v1.vector_new(3);
+
+    cout << "Enter element,ctl+z to stop inputting " << endl;
+    while (cin >> n) {
+        v1.vector_pushback(n);
+    }
+
+    cout << "first element " << v1.vector_front() << endl;
+    cout << "last element " << v1.vector_back() << endl;
+    v1.print_vector();
+
+    cout << "removing last element" << endl;
+    v1.vector_popback();
+    v1.print_vector();
+
+    cout << "size " << v1.vector_size() << endl;
+    cout << "capacity is " << v1.cap << endl;
+
+
+    v1.vector_delete();
     return 0;
 }
